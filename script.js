@@ -4,8 +4,12 @@
 // make the computer choose a random play
 function getComputerChoice() {
     // use random function to genrate one of the three choices
-    // temporary make the function return rock always to test out the program
-    return "rock"
+    // generate random number between 0 and 2
+    const randomint = Math.floor(3 * Math.random() )
+
+    if (randomint === 0) {return "rock";}
+    if (randomint === 1) {return "paper"}
+    if (randomint === 2) {return "sissors"}
 }
 
 // given two chooses, return True if player wins the game
@@ -34,7 +38,7 @@ function playRound(playerSelection, computerSelection){
         // computer sissors --> Draw!
     if ( playerSelection === "sissors" && computerSelection === "rock" ) { return "You Lose! Rock beats Sissors";}
     if ( playerSelection === "sissors" && computerSelection === "paper" ) { return "You Win! Sissors beats Paper";}
-    if ( playerSelection === "sissors" && computerSelection === "paper" ) { return "Draw!";}
+    if ( playerSelection === "sissors" && computerSelection === "sissors" ) { return "Draw!";}
 
 }
 
