@@ -49,9 +49,19 @@ function sayTheWinner(playerSelection,computerSelection){
 
 }
 
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Enter Rock, Paper, or Sissors");
+        const computerSelection = getComputerChoice();
+        if (playRound(playerSelection,computerSelection) === 1) { playerScore++}
+        if (playRound(playerSelection,computerSelection) === -1) { computerScore++}
+        console.log(sayTheWinner(playerSelection,computerSelection));
+     }
+    if (playerScore > computerScore) {console.log("You win overall")}
+    if (playerScore === computerScore) {console.log("Draw overall!")}
+    if (playerScore < computerScore) {console.log("Computer win overall")}
+}
 
-
-const playerSelection = "Sissors";
-const computerSelection = getComputerChoice();
-
-console.log(sayTheWinner(playerSelection,computerSelection));
+game()
